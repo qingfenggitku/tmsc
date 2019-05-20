@@ -1,0 +1,66 @@
+.divBody{
+    margin: 0 auto;
+    max-width: 1200px;
+    position: relative;
+    width: 1050px;
+    height: 11614px;
+    border: rebeccapurple solid 1px;
+}
+hr {
+    margin: 0;
+    padding: 0;
+    size: A3;
+    color: black;
+    font-weight: bolder;
+}
+.divPhoto {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 525px;
+    height: 1614px;
+    border: rebeccapurple solid 1px;
+    display: inline-block;
+}
+.divShop {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 520px;
+    height: 1614px;
+    border: red solid 1px;
+    float: right;
+    display: inline-block;
+}
+.divPrice{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    height: 1000px;
+    border: black solid 1px;
+    float: right;
+}
+.divPrice h2{
+    color: red;
+}
+.divNum{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    height: 600px;
+    border: black solid 1px;
+    float: right;
+}
+.divNum input{
+    width: 40px;
+    text-align: center;
+}
+#shopCart {
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    background-color: gainsboro;
+}

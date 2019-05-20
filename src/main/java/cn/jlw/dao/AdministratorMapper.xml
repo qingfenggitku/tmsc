@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.jlw.dao.AdministratorMapper">
+    <resultMap id="AdministratorMap" type="Administrator">
+        <id property="id" column="id"></id>
+        <result property="userName" column="nickName"/>
+        <result property="date" column="createDate"></result>
+        <result property="email" column="email"></result>
+        <result property="name" column="name"/>
+        <result property="phoneNumber" column="phoneNumber"/>
+        <result property="pwd" column="pwd"/>
+        <result property="permission" column="permission"/>
+    </resultMap>
+    <!--登录-->
+    <select id="login" resultMap="AdministratorMap" parameterType="Administrator">
+      select id,nickName,permission from `administrator` where nickName = #{userName} and pwd = #{pwd};
+    </select>
+    <!--添加用户-->
+    <insert id="addAdministrator" parameterType="Administrator">
+        INSERT INTO `administrator`
+          (`nickName`,`phoneNumber`,`pwd`,`email`,`createDate`)
+        VALUES
+        (#{userName},#{phoneNumber},#{pwd},#{email},#{date,jdbcType=TIMESTAMP});
+    </insert>
+    <!--查看用户名-->
+    <select id="getNickName" resultType="String">
+        select nickName from administrator;
+    </select>
+    <!--忘记密码-->
+    <update id="updatePassword">
+         UPDATE administrator SET pwd = #{pwd} WHERE `phoneNumber`= #{phone};
+    </update>
+    <!--查看用户-->
+    <select id="getAdministrators" resultMap="AdministratorMap">
+        select * from administrator
+    </select>
+    <!--用户名模糊查询-->
+    <select id="getAdministrator" resultMap="AdministratorMap">
+        select * from administrator where nickName like concat('%',#{userName},'%')
+    </select>
+    <!--添加管理员-->
+    <update id="addManager" parameterType="String">
+        UPDATE administrator SET permission = '管理员' WHERE `nickName`= #{userName};
+    </update>
+
+    <!--删除管理员-->
+    <update id="deleteManager" parameterType="String">
+        UPDATE administrator SET permission = '成员' WHERE `nickName`= #{userName};
+    </update>
+    <!--修改用户-->
+    <update id="updateUser" parameterType="Merchandise">
+        update administrator
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+            <if test='userName!=null || userName != "" '>
+                nickName=#{userName},
+            </if>
+            <if test="email!=null || email !='' ">
+                email=#{email},
+            </if>
+            <if test="name!=null || name != ''">
+                `name`=#{name},
+            </if>
+
+            <if test="phoneNumber!=null || phoneNumber != ''">
+                phoneNumber=#{phoneNumber},
+            </if>
+            <if test="pwd!=null || pwd != ''">
+                pwd=#{pwd},
+            </if>
+        </trim>
+    </update>
+    <!--删除用户-->
+    <delete id="deleteUser">
+        delete from administrator where id = #{id}
+    </delete>
+
+    <select id="checkUser" resultMap="AdministratorMap">
+        select * from administrator where id = #{id}
+    </select>
+</mapper>

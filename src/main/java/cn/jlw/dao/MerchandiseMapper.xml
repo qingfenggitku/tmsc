@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.jlw.dao.MerchandiseMapper">
+    <resultMap id="MerchandiseMap" type="Merchandise">
+        <id column="id" property="id"></id>
+        <result property="addedTime" column="addedtime"/>
+        <result property="category" column="category"/>
+        <result property="details" column="details"></result>
+        <result property="merchandiseName" column="merchandiseName"/>
+        <result property="price" column="price"/>
+        <result property="number" column="number"/>
+        <result property="salesVolume" column="salesVolume"/>
+        <result property="photo" column="photo"/>
+        <association property="shopCart" javaType="cn.jlw.entity.ShopCart">
+            <id column="id" property="id"/>
+            <result property="merchandiseId" column="merchandiseId"></result>
+            <result property="customerId" column="customerId"></result>
+            <result property="createDate" column="createDate"/>
+        </association>
+    </resultMap>
+    <!-- 单条插入-->
+    <insert id="addMerchandise" parameterType="Merchandise">
+        INSERT INTO `merchandise`
+        (`merchandiseName`,`details`,`price`,`category`,`number`,`addedTime`,`salesVolume`,photo)
+        VALUES
+        (#{merchandiseName},#{details},#{price},#{category},#{number},#{addedTime,jdbcType=TIMESTAMP},#{salesVolume},#{photo}
+        );
+    </insert>
+    <!-- 批量插入-->
+    <insert id="addMerchandiselist" parameterType="List">
+        INSERT INTO `merchandise`
+        (`merchandiseName`,`details`,`price`,`category`,`number`,`addedTime`,`salesVolume`)
+        VALUES
+            <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.merchandiseName},#{item.details},#{item.price},#{item.category}
+                ,#{item.number},#{item.addedTime,jdbcType=TIMESTAMP},#{item.salesVolume}
+            )
+            </foreach>
+    </insert>
+    <!--分页显示-->
+    <select id="researchMerchandis" resultMap="MerchandiseMap">
+        SELECT `id`,`merchandiseName`,`price`,`photo` FROM `merchandise` ORDER BY id DESC
+    </select>
+
+    <select id="getMerchandise" parameterType="int" resultMap="MerchandiseMap">
+        SELECT `id`,`merchandiseName`,`price`,details,category FROM `merchandise` WHERE id = #{merchandiseId}
+    </select>
+    <!--管理员分页显示-->
+    <select id="researchAdMerchandis" resultMap="MerchandiseMap">
+        SELECT * FROM `merchandise` ORDER BY id DESC
+    </select>
+    <select id="findMerchandise" parameterType="String" resultMap="MerchandiseMap">
+        SELECT * FROM merchandise WHERE merchandiseName LIKE concat('%',#{condition},'%') OR category LIKE concat('%',#{condition},'%')
+    </select>
+
+
+    <update id="updateMerchandise" parameterType="Merchandise">
+        update merchandise
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+            <if test="merchandiseName!=null">
+                merchandiseName=#{merchandiseName},
+            </if>
+            <if test="details!=null">
+                details=#{details},
+            </if>
+            <if test="price!=null">
+                price=#{price},
+            </if>
+            <if test="number!=null">
+                `number`=#{number},
+            </if>
+            <if test="category!=null">
+                category=#{category},
+            </if>
+            <if test="photo!=null">
+                photo=#{photo},
+            </if>
+        </trim>
+    </update>
+
+    <delete id="delectMerchanise">
+        delete from merchandise where id = #{id}
+    </delete>
+
+    <select id="checkMerchandise" parameterType="int" resultMap="MerchandiseMap">
+        SELECT id,`merchandiseName`,`price`,`number`,details,category ,photo FROM `merchandise` WHERE id = #{merchandiseId}
+    </select>
+</mapper>

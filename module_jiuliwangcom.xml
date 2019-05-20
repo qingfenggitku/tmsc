@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_jiuliwangcom" default="compile.module.jiuliwangcom">
+  <dirname property="module.jiuliwangcom.basedir" file="${ant.file.module_jiuliwangcom}"/>
+  
+  <property name="module.jdk.home.jiuliwangcom" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.jiuliwangcom" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.jiuliwangcom" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.jiuliwangcom" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="jiuliwangcom.output.dir" value="${module.jiuliwangcom.basedir}/target/classes"/>
+  <property name="jiuliwangcom.testoutput.dir" value="${module.jiuliwangcom.basedir}/target/test-classes"/>
+  
+  <path id="jiuliwangcom.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="jiuliwangcom.module.production.classpath">
+    <path refid="${module.jdk.classpath.jiuliwangcom}"/>
+    <path refid="library.scala-sdk-2.12.4.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:3.2.13.release.classpath"/>
+    <path refid="library.maven:_aopalliance:aopalliance:1.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aspects:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.aspectj:aspectjweaver:1.7.4.classpath"/>
+    <path refid="library.maven:_junit:junit:4.10.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jdbc:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-tx:3.2.13.release.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.21.classpath"/>
+    <path refid="library.maven:_org.mybatis:mybatis:3.2.2.classpath"/>
+    <path refid="library.maven:_org.mybatis:mybatis-spring:1.2.0.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.12.classpath"/>
+    <path refid="library.maven:_commons-dbcp:commons-dbcp:1.4.classpath"/>
+    <path refid="library.maven:_commons-pool:commons-pool:1.6.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:3.2.13.release.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.13.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_javax.servlet:jstl:1.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-test:3.2.13.release.classpath"/>
+    <path refid="library.maven:_com.github.pagehelper:pagehelper:5.0.0.classpath"/>
+    <path refid="library.maven:_com.github.jsqlparser:jsqlparser:0.9.5.classpath"/>
+    <path refid="library.maven:_com.alipay.sdk:alipay-sdk-java:3.0.0.classpath"/>
+    <path refid="library.maven:_com.aliyun:aliyun-java-sdk-core:3.2.8.classpath"/>
+    <path refid="library.maven:_com.aliyun:aliyun-java-sdk-dysmsapi:1.1.0.classpath"/>
+  </path>
+  
+  <path id="jiuliwangcom.runtime.production.module.classpath">
+    <pathelement location="${jiuliwangcom.output.dir}"/>
+    <path refid="library.scala-sdk-2.12.4.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:3.2.13.release.classpath"/>
+    <path refid="library.maven:_aopalliance:aopalliance:1.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aspects:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.aspectj:aspectjweaver:1.7.4.classpath"/>
+    <path refid="library.maven:_junit:junit:4.10.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jdbc:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-tx:3.2.13.release.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.21.classpath"/>
+    <path refid="library.maven:_org.mybatis:mybatis:3.2.2.classpath"/>
+    <path refid="library.maven:_org.mybatis:mybatis-spring:1.2.0.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.12.classpath"/>
+    <path refid="library.maven:_commons-dbcp:commons-dbcp:1.4.classpath"/>
+    <path refid="library.maven:_commons-pool:commons-pool:1.6.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:3.2.13.release.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.13.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_javax.servlet:jstl:1.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-test:3.2.13.release.classpath"/>
+    <path refid="library.maven:_com.github.pagehelper:pagehelper:5.0.0.classpath"/>
+    <path refid="library.maven:_com.github.jsqlparser:jsqlparser:0.9.5.classpath"/>
+    <path refid="library.maven:_com.alipay.sdk:alipay-sdk-java:3.0.0.classpath"/>
+    <path refid="library.maven:_com.aliyun:aliyun-java-sdk-core:3.2.8.classpath"/>
+    <path refid="library.maven:_com.aliyun:aliyun-java-sdk-dysmsapi:1.1.0.classpath"/>
+  </path>
+  
+  <path id="jiuliwangcom.module.classpath">
+    <path refid="${module.jdk.classpath.jiuliwangcom}"/>
+    <pathelement location="${jiuliwangcom.output.dir}"/>
+    <path refid="library.scala-sdk-2.12.4.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:3.2.13.release.classpath"/>
+    <path refid="library.maven:_aopalliance:aopalliance:1.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aspects:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.aspectj:aspectjweaver:1.7.4.classpath"/>
+    <path refid="library.maven:_junit:junit:4.10.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jdbc:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-tx:3.2.13.release.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.21.classpath"/>
+    <path refid="library.maven:_org.mybatis:mybatis:3.2.2.classpath"/>
+    <path refid="library.maven:_org.mybatis:mybatis-spring:1.2.0.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.12.classpath"/>
+    <path refid="library.maven:_commons-dbcp:commons-dbcp:1.4.classpath"/>
+    <path refid="library.maven:_commons-pool:commons-pool:1.6.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:3.2.13.release.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.13.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_javax.servlet:jstl:1.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-test:3.2.13.release.classpath"/>
+    <path refid="library.maven:_com.github.pagehelper:pagehelper:5.0.0.classpath"/>
+    <path refid="library.maven:_com.github.jsqlparser:jsqlparser:0.9.5.classpath"/>
+    <path refid="library.maven:_com.alipay.sdk:alipay-sdk-java:3.0.0.classpath"/>
+    <path refid="library.maven:_com.aliyun:aliyun-java-sdk-core:3.2.8.classpath"/>
+    <path refid="library.maven:_com.aliyun:aliyun-java-sdk-dysmsapi:1.1.0.classpath"/>
+  </path>
+  
+  <path id="jiuliwangcom.runtime.module.classpath">
+    <pathelement location="${jiuliwangcom.testoutput.dir}"/>
+    <pathelement location="${jiuliwangcom.output.dir}"/>
+    <path refid="library.scala-sdk-2.12.4.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aop:3.2.13.release.classpath"/>
+    <path refid="library.maven:_aopalliance:aopalliance:1.0.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-aspects:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.aspectj:aspectjweaver:1.7.4.classpath"/>
+    <path refid="library.maven:_junit:junit:4.10.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-context:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-expression:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-beans:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-core:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-jdbc:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-tx:3.2.13.release.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.21.classpath"/>
+    <path refid="library.maven:_org.mybatis:mybatis:3.2.2.classpath"/>
+    <path refid="library.maven:_org.mybatis:mybatis-spring:1.2.0.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.12.classpath"/>
+    <path refid="library.maven:_commons-dbcp:commons-dbcp:1.4.classpath"/>
+    <path refid="library.maven:_commons-pool:commons-pool:1.6.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-web:3.2.13.release.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-webmvc:3.2.13.release.classpath"/>
+    <path refid="library.maven:_com.alibaba:fastjson:1.2.13.classpath"/>
+    <path refid="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath"/>
+    <path refid="library.maven:_javax.servlet:jstl:1.2.classpath"/>
+    <path refid="library.maven:_org.springframework:spring-test:3.2.13.release.classpath"/>
+    <path refid="library.maven:_com.github.pagehelper:pagehelper:5.0.0.classpath"/>
+    <path refid="library.maven:_com.github.jsqlparser:jsqlparser:0.9.5.classpath"/>
+    <path refid="library.maven:_com.alipay.sdk:alipay-sdk-java:3.0.0.classpath"/>
+    <path refid="library.maven:_com.aliyun:aliyun-java-sdk-core:3.2.8.classpath"/>
+    <path refid="library.maven:_com.aliyun:aliyun-java-sdk-dysmsapi:1.1.0.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.jiuliwangcom">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.jiuliwangcom">
+    <patternset refid="excluded.from.module.jiuliwangcom"/>
+  </patternset>
+  
+  <path id="jiuliwangcom.module.sourcepath">
+    <dirset dir="${module.jiuliwangcom.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="jiuliwangcom.module.test.sourcepath">
+    <dirset dir="${module.jiuliwangcom.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.jiuliwangcom" depends="compile.module.jiuliwangcom.production,compile.module.jiuliwangcom.tests" description="Compile module jiuliwangcom"/>
+  
+  <target name="compile.module.jiuliwangcom.production" depends="register.custom.compilers" description="Compile module jiuliwangcom; production classes">
+    <mkdir dir="${jiuliwangcom.output.dir}"/>
+    <javac2 destdir="${jiuliwangcom.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.jiuliwangcom}/javac">
+      <compilerarg line="${compiler.args.jiuliwangcom}"/>
+      <bootclasspath refid="jiuliwangcom.module.bootclasspath"/>
+      <classpath refid="jiuliwangcom.module.production.classpath"/>
+      <src refid="jiuliwangcom.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.jiuliwangcom"/>
+    </javac2>
+    
+    <copy todir="${jiuliwangcom.output.dir}">
+      <fileset dir="${module.jiuliwangcom.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.jiuliwangcom.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.jiuliwangcom.tests" depends="register.custom.compilers,compile.module.jiuliwangcom.production" description="compile module jiuliwangcom; test classes" unless="skip.tests">
+    <mkdir dir="${jiuliwangcom.testoutput.dir}"/>
+    <javac2 destdir="${jiuliwangcom.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.jiuliwangcom}/javac">
+      <compilerarg line="${compiler.args.jiuliwangcom}"/>
+      <bootclasspath refid="jiuliwangcom.module.bootclasspath"/>
+      <classpath refid="jiuliwangcom.module.classpath"/>
+      <src refid="jiuliwangcom.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.jiuliwangcom"/>
+    </javac2>
+    
+    <copy todir="${jiuliwangcom.testoutput.dir}">
+      <fileset dir="${module.jiuliwangcom.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.jiuliwangcom" description="cleanup module">
+    <delete dir="${jiuliwangcom.output.dir}"/>
+    <delete dir="${jiuliwangcom.testoutput.dir}"/>
+  </target>
+</project>

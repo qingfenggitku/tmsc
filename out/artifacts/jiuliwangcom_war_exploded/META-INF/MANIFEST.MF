@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Built-By: 81232
+Class-Path: spring-aop-3.2.13.RELEASE.jar aopalliance-1.0.jar spring-a
+ spects-3.2.13.RELEASE.jar aspectjweaver-1.7.4.jar junit-4.10.jar hamc
+ rest-core-1.1.jar commons-logging-1.2.jar spring-context-3.2.13.RELEA
+ SE.jar spring-expression-3.2.13.RELEASE.jar spring-beans-3.2.13.RELEA
+ SE.jar spring-core-3.2.13.RELEASE.jar spring-jdbc-3.2.13.RELEASE.jar 
+ spring-tx-3.2.13.RELEASE.jar mysql-connector-java-5.1.21.jar mybatis-
+ 3.2.2.jar mybatis-spring-1.2.0.jar log4j-1.2.12.jar commons-dbcp-1.4.
+ jar commons-pool-1.6.jar spring-web-3.2.13.RELEASE.jar spring-webmvc-
+ 3.2.13.RELEASE.jar fastjson-1.2.13.jar javax.servlet-api-3.1.0.jar js
+ tl-1.2.jar spring-test-3.2.13.RELEASE.jar pagehelper-5.0.0.jar jsqlpa
+ rser-0.9.5.jar alipay-sdk-java-3.0.0.jar aliyun-java-sdk-core-3.2.8.j
+ ar aliyun-java-sdk-dysmsapi-1.1.0.jar druid-wrapper-0.2.9.jar druid-0
+ .2.9.jar
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_121
+Main-Class: cn.jlw
+

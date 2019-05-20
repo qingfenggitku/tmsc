@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+h2{
+    margin-top:40px ;
+}
+table{
+    margin: 40px auto;
+    width: 1200px;
+    position: relative;
+    border: 1px solid black;
+}
+table tr{
+    margin: 0 auto;
+    width: 100%;
+    height: 60px;
+    position: relative;
+    border: 1px solid black;
+}
+table tr td{
+    margin: 0 auto;
+    width: 80px;
+    height: 30px;
+    align-content: center;
+    text-align: center;
+    position: relative;
+    border: 1px solid black;
+}
+.tbox{
+    margin: 0 auto;
+    max-width: 1200px;
+    overflow: hidden;
+    position: relative;
+    height: 600px;
+    width: 100%;
+    background-color: #666;
+}

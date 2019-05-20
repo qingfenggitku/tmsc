@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.jlw.dao.ShopOderMapper">
+<resultMap id="OrderMap" type="cn.jlw.entity.ShopOrder">
+    <id column="id" property="id"/>
+    <result property="customerId" column="customerId"/>
+    <result property="merchandiseId" column="merchandiseId"/>
+    <result property="deliveryMethod" column="deliveryMethod"/>
+    <result property="payMethod" column="payMethod"/>
+    <result property="recipientAddress" column="recipientAddress"/>
+    <result property="recipientName" column="recipientName"/>
+    <result property="recipientPhone" column="recipientPhone"/>
+    <result property="telephone" column="telephone"/>
+    <result property="createDate" column="createDate"/>
+    <result property="orderId" column="orderId"></result>
+    <association property="merchandise" javaType="cn.jlw.entity.Merchandise">
+        <id column="id" property="id"></id>
+        <result property="addedTime" column="addedtime"/>
+        <result property="category" column="category"/>
+        <result property="details" column="details"></result>
+        <result property="merchandiseName" column="merchandiseName"/>
+        <result property="price" column="price"/>
+        <result property="number" column="number"/>
+        <result property="salesVolume" column="salesVolume"/>
+        <result property="photo" column="photo"/>
+    </association>
+    <association property="administrator" javaType="cn.jlw.entity.Administrator">
+        <id property="id" column="id"></id>
+        <result property="userName" column="nickName"/>
+        <result property="date" column="createDate"></result>
+        <result property="email" column="email"></result>
+        <result property="name" column="name"/>
+        <result property="phoneNumber" column="phoneNumber"/>
+        <result property="pwd" column="pwd"/>
+        <result property="permission" column="permission"/>
+    </association>
+</resultMap>
+
+    <insert id="addShopOrder" parameterType="ShopOrder">
+        INSERT INTO `shopOrder`
+        (orderId,`customerId`,`recipientName`,`recipientPhone`,`recipientAddress`,`telephone`,`payMethod`,
+         `deliveryMethod`,`merchandiseId`,`createDate`)
+        VALUES
+            (#{orderId},#{customerId},#{recipientName},#{recipientPhone},#{recipientAddress},#{telephone},
+             #{payMethod},#{deliveryMethod},#{merchandiseId},#{createDate,jdbcType=TIMESTAMP}
+            );
+    </insert>
+    <select id="getShopOrder" parameterType="String" resultMap="OrderMap">
+        SELECT id,merchandiseId,orderId FROM shopOrder WHERE orderId = #{OrderId}
+    </select>
+
+    <select id="searchOrder" resultMap="OrderMap">
+        SELECT `orderId`,`recipientName`,`recipientPhone`,`recipientAddress`,`telephone`,`payMethod`,
+        `deliveryMethod`,`merchandiseId`,s.`createDate`,merchandiseName ,nickName
+        FROM shopOrder s,merchandise m ,administrator a
+        WHERE s.`merchandiseId` = m.`id` AND s.`orderId`=#{orderId} AND s.`customerId` = a.`id`
+    </select>
+
+    <update id="updateOrder" parameterType="ShopOrder">
+        UPDATE shopOrder
+        <trim prefix="set" suffixOverrides="," suffix="where orderId = #{orderId}">
+            <if test="recipientName != null and recipientName != ''">
+               recipientName=#{recipientName},
+            </if>
+            <if test="recipientPhone !=null and recipientPhone !='' ">
+                recipientPhone=#{recipientPhone},
+            </if>
+            <if test="recipientAddress!=null and recipientAddress != ''">
+                `recipientAddress`=#{recipientAddress},
+            </if>
+        </trim>
+    </update>
+    <delete id="deleteOrder">
+        delete from shopOrder where orderId = #{orderId}
+    </delete>
+</mapper>

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="jiuliwangcom" default="all">
+  
+  
+  <property file="jiuliwangcom.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.zip"/>
+    <include name="*.ane"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.maven:_aopalliance:aopalliance:1.0.classpath">
+    <pathelement location="D:/maven/repositor/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.alibaba:fastjson:1.2.13.classpath">
+    <pathelement location="D:/maven/repositor/com/alibaba/fastjson/1.2.13/fastjson-1.2.13.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.alipay.sdk:alipay-sdk-java:3.0.0.classpath">
+    <pathelement location="D:/maven/repositor/com/alipay/sdk/alipay-sdk-java/3.0.0/alipay-sdk-java-3.0.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.aliyun:aliyun-java-sdk-core:3.2.8.classpath">
+    <pathelement location="D:/maven/repositor/com/aliyun/aliyun-java-sdk-core/3.2.8/aliyun-java-sdk-core-3.2.8.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.aliyun:aliyun-java-sdk-dysmsapi:1.1.0.classpath">
+    <pathelement location="D:/maven/repositor/com/aliyun/aliyun-java-sdk-dysmsapi/1.1.0/aliyun-java-sdk-dysmsapi-1.1.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.github.jsqlparser:jsqlparser:0.9.5.classpath">
+    <pathelement location="D:/maven/repositor/com/github/jsqlparser/jsqlparser/0.9.5/jsqlparser-0.9.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.github.pagehelper:pagehelper:5.0.0.classpath">
+    <pathelement location="D:/maven/repositor/com/github/pagehelper/pagehelper/5.0.0/pagehelper-5.0.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-dbcp:commons-dbcp:1.4.classpath">
+    <pathelement location="D:/maven/repositor/commons-dbcp/commons-dbcp/1.4/commons-dbcp-1.4.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-logging:commons-logging:1.2.classpath">
+    <pathelement location="D:/maven/repositor/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_commons-pool:commons-pool:1.6.classpath">
+    <pathelement location="D:/maven/repositor/commons-pool/commons-pool/1.6/commons-pool-1.6.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.servlet:javax.servlet-api:3.1.0.classpath">
+    <pathelement location="D:/maven/repositor/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.servlet:jstl:1.2.classpath">
+    <pathelement location="D:/maven/repositor/javax/servlet/jstl/1.2/jstl-1.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_junit:junit:4.10.classpath">
+    <pathelement location="D:/maven/repositor/junit/junit/4.10/junit-4.10.jar"/>
+  </path>
+  
+  <path id="library.maven:_log4j:log4j:1.2.12.classpath">
+    <pathelement location="D:/maven/repositor/log4j/log4j/1.2.12/log4j-1.2.12.jar"/>
+  </path>
+  
+  <path id="library.maven:_mysql:mysql-connector-java:5.1.21.classpath">
+    <pathelement location="D:/maven/repositor/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.aspectj:aspectjweaver:1.7.4.classpath">
+    <pathelement location="D:/maven/repositor/org/aspectj/aspectjweaver/1.7.4/aspectjweaver-1.7.4.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath">
+    <pathelement location="D:/maven/repositor/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.mybatis:mybatis-spring:1.2.0.classpath">
+    <pathelement location="D:/maven/repositor/org/mybatis/mybatis-spring/1.2.0/mybatis-spring-1.2.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.mybatis:mybatis:3.2.2.classpath">
+    <pathelement location="D:/maven/repositor/org/mybatis/mybatis/3.2.2/mybatis-3.2.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-aop:3.2.13.release.classpath">
+    <pathelement location="D:/maven/repositor/org/springframework/spring-aop/3.2.13.RELEASE/spring-aop-3.2.13.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-aspects:3.2.13.release.classpath">
+    <pathelement location="D:/maven/repositor/org/springframework/spring-aspects/3.2.13.RELEASE/spring-aspects-3.2.13.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-beans:3.2.13.release.classpath">
+    <pathelement location="D:/maven/repositor/org/springframework/spring-beans/3.2.13.RELEASE/spring-beans-3.2.13.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-context:3.2.13.release.classpath">
+    <pathelement location="D:/maven/repositor/org/springframework/spring-context/3.2.13.RELEASE/spring-context-3.2.13.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-core:3.2.13.release.classpath">
+    <pathelement location="D:/maven/repositor/org/springframework/spring-core/3.2.13.RELEASE/spring-core-3.2.13.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-expression:3.2.13.release.classpath">
+    <pathelement location="D:/maven/repositor/org/springframework/spring-expression/3.2.13.RELEASE/spring-expression-3.2.13.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-jdbc:3.2.13.release.classpath">
+    <pathelement location="D:/maven/repositor/org/springframework/spring-jdbc/3.2.13.RELEASE/spring-jdbc-3.2.13.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-test:3.2.13.release.classpath">
+    <pathelement location="D:/maven/repositor/org/springframework/spring-test/3.2.13.RELEASE/spring-test-3.2.13.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-tx:3.2.13.release.classpath">
+    <pathelement location="D:/maven/repositor/org/springframework/spring-tx/3.2.13.RELEASE/spring-tx-3.2.13.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-web:3.2.13.release.classpath">
+    <pathelement location="D:/maven/repositor/org/springframework/spring-web/3.2.13.RELEASE/spring-web-3.2.13.RELEASE.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.springframework:spring-webmvc:3.2.13.release.classpath">
+    <pathelement location="D:/maven/repositor/org/springframework/spring-webmvc/3.2.13.RELEASE/spring-webmvc-3.2.13.RELEASE.jar"/>
+  </path>
+  
+  
+  <!-- Global Libraries -->
+  
+  <path id="library.scala-sdk-2.12.4.classpath">
+    <pathelement location="C:/Users/81232/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.4.jar"/>
+    <pathelement location="C:/Users/81232/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.12.4.jar"/>
+  </path>
+  
+  
+  <!-- Application Server Libraries -->
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="jgoodies-forms.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_jiuliwangcom.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.jiuliwangcom, clean.artifact.jiuliwangcom:war_exploded" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.jiuliwangcom" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.jiuliwangcom" value="${basedir}/out/artifacts/jiuliwangcom"/>
+    <property name="artifact.output.jiuliwangcom:jar" value="${basedir}/out/artifacts/jiuliwangcom_jar"/>
+    <property name="artifact.output.jiuliwangcom:war_exploded" value="${basedir}/out/artifacts/jiuliwangcom_war_exploded"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.jiuliwangcom.apk" value="${artifacts.temp.dir}/jiuliwangcom.apk"/>
+    <property name="temp.jar.path.jiuliwangcom.jar" value="${artifacts.temp.dir}/jiuliwangcom.jar"/>
+  </target>
+  
+  <target name="clean.artifact.jiuliwangcom:war_exploded" description="clean jiuliwangcom:war exploded artifact output">
+    <delete dir="${artifact.output.jiuliwangcom:war_exploded}"/>
+  </target>
+  
+  <target name="artifact.jiuliwangcom" depends="init.artifacts" description="Build &#39;jiuliwangcom&#39; artifact">
+    <property name="artifact.temp.output.jiuliwangcom" value="${artifacts.temp.dir}/jiuliwangcom"/>
+    <mkdir dir="${artifact.temp.output.jiuliwangcom}"/>
+    <zip destfile="${temp.jar.path.jiuliwangcom.apk}"/>
+    <copy file="${temp.jar.path.jiuliwangcom.apk}" tofile="${artifact.temp.output.jiuliwangcom}/jiuliwangcom.apk"/>
+  </target>
+  
+  <target name="artifact.jiuliwangcom:jar" depends="init.artifacts, compile.module.jiuliwangcom" description="Build &#39;jiuliwangcom:jar&#39; artifact">
+    <property name="artifact.temp.output.jiuliwangcom:jar" value="${artifacts.temp.dir}/jiuliwangcom_jar"/>
+    <mkdir dir="${artifact.temp.output.jiuliwangcom:jar}"/>
+    <jar destfile="${temp.jar.path.jiuliwangcom.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${jiuliwangcom.output.dir}"/>
+      <zipfileset src="D:/maven/repositor/org/springframework/spring-core/3.2.13.RELEASE/spring-core-3.2.13.RELEASE.jar"/>
+      <zipfileset src="D:/maven/repositor/org/springframework/spring-context/3.2.13.RELEASE/spring-context-3.2.13.RELEASE.jar"/>
+      <zipfileset src="D:/maven/repositor/com/github/jsqlparser/jsqlparser/0.9.5/jsqlparser-0.9.5.jar"/>
+      <zipfileset src="D:/maven/repositor/com/alipay/sdk/alipay-sdk-java/3.0.0/alipay-sdk-java-3.0.0.jar"/>
+      <zipfileset src="D:/maven/repositor/com/aliyun/aliyun-java-sdk-core/3.2.8/aliyun-java-sdk-core-3.2.8.jar"/>
+      <zipfileset src="D:/maven/repositor/javax/servlet/jstl/1.2/jstl-1.2.jar"/>
+      <zipfileset src="D:/maven/repositor/junit/junit/4.10/junit-4.10.jar"/>
+      <zipfileset src="D:/maven/repositor/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar"/>
+      <zipfileset src="D:/maven/repositor/commons-pool/commons-pool/1.6/commons-pool-1.6.jar"/>
+      <zipfileset src="D:/maven/repositor/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar"/>
+      <zipfileset src="D:/maven/repositor/aopalliance/aopalliance/1.0/aopalliance-1.0.jar"/>
+      <zipfileset src="D:/maven/repositor/org/springframework/spring-beans/3.2.13.RELEASE/spring-beans-3.2.13.RELEASE.jar"/>
+      <zipfileset src="D:/maven/repositor/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar"/>
+      <zipfileset src="D:/maven/repositor/org/mybatis/mybatis/3.2.2/mybatis-3.2.2.jar"/>
+      <zipfileset src="D:/maven/repositor/org/springframework/spring-web/3.2.13.RELEASE/spring-web-3.2.13.RELEASE.jar"/>
+      <zipfileset src="D:/maven/repositor/org/springframework/spring-expression/3.2.13.RELEASE/spring-expression-3.2.13.RELEASE.jar"/>
+      <zipfileset src="D:/maven/repositor/org/mybatis/mybatis-spring/1.2.0/mybatis-spring-1.2.0.jar"/>
+      <zipfileset src="D:/maven/repositor/org/springframework/spring-tx/3.2.13.RELEASE/spring-tx-3.2.13.RELEASE.jar"/>
+      <zipfileset src="D:/maven/repositor/com/github/pagehelper/pagehelper/5.0.0/pagehelper-5.0.0.jar"/>
+      <zipfileset src="D:/maven/repositor/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"/>
+      <zipfileset src="D:/maven/repositor/org/aspectj/aspectjweaver/1.7.4/aspectjweaver-1.7.4.jar"/>
+      <zipfileset src="D:/maven/repositor/log4j/log4j/1.2.12/log4j-1.2.12.jar"/>
+      <zipfileset src="D:/maven/repositor/org/springframework/spring-webmvc/3.2.13.RELEASE/spring-webmvc-3.2.13.RELEASE.jar"/>
+      <zipfileset src="D:/maven/repositor/org/springframework/spring-aspects/3.2.13.RELEASE/spring-aspects-3.2.13.RELEASE.jar"/>
+      <zipfileset src="D:/maven/repositor/com/alibaba/fastjson/1.2.13/fastjson-1.2.13.jar"/>
+      <zipfileset src="D:/maven/repositor/org/springframework/spring-test/3.2.13.RELEASE/spring-test-3.2.13.RELEASE.jar"/>
+      <zipfileset src="D:/maven/repositor/commons-dbcp/commons-dbcp/1.4/commons-dbcp-1.4.jar"/>
+      <zipfileset src="D:/maven/repositor/org/springframework/spring-aop/3.2.13.RELEASE/spring-aop-3.2.13.RELEASE.jar"/>
+      <zipfileset src="C:/Users/81232/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.4.jar"/>
+      <zipfileset src="C:/Users/81232/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.12.4.jar"/>
+      <zipfileset src="D:/maven/repositor/org/springframework/spring-jdbc/3.2.13.RELEASE/spring-jdbc-3.2.13.RELEASE.jar"/>
+      <zipfileset src="D:/maven/repositor/com/aliyun/aliyun-java-sdk-dysmsapi/1.1.0/aliyun-java-sdk-dysmsapi-1.1.0.jar"/>
+    </jar>
+    <copy file="${temp.jar.path.jiuliwangcom.jar}" tofile="${artifact.temp.output.jiuliwangcom:jar}/jiuliwangcom.jar"/>
+  </target>
+  
+  <target name="artifact.jiuliwangcom:war_exploded" depends="init.artifacts, compile.module.jiuliwangcom" description="Build &#39;jiuliwangcom:war exploded&#39; artifact">
+    <mkdir dir="${artifact.output.jiuliwangcom:war_exploded}"/>
+    <mkdir dir="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF"/>
+    <mkdir dir="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/classes">
+      <fileset dir="${jiuliwangcom.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib"/>
+    <copy file="D:/maven/repositor/org/springframework/spring-aop/3.2.13.RELEASE/spring-aop-3.2.13.RELEASE.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/spring-aop-3.2.13.RELEASE.jar"/>
+    <copy file="D:/maven/repositor/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/aopalliance-1.0.jar"/>
+    <copy file="D:/maven/repositor/org/springframework/spring-aspects/3.2.13.RELEASE/spring-aspects-3.2.13.RELEASE.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/spring-aspects-3.2.13.RELEASE.jar"/>
+    <copy file="D:/maven/repositor/org/aspectj/aspectjweaver/1.7.4/aspectjweaver-1.7.4.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/aspectjweaver-1.7.4.jar"/>
+    <copy file="D:/maven/repositor/junit/junit/4.10/junit-4.10.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/junit-4.10.jar"/>
+    <copy file="D:/maven/repositor/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/hamcrest-core-1.1.jar"/>
+    <copy file="D:/maven/repositor/commons-logging/commons-logging/1.2/commons-logging-1.2.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/commons-logging-1.2.jar"/>
+    <copy file="D:/maven/repositor/org/springframework/spring-context/3.2.13.RELEASE/spring-context-3.2.13.RELEASE.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/spring-context-3.2.13.RELEASE.jar"/>
+    <copy file="D:/maven/repositor/org/springframework/spring-expression/3.2.13.RELEASE/spring-expression-3.2.13.RELEASE.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/spring-expression-3.2.13.RELEASE.jar"/>
+    <copy file="D:/maven/repositor/org/springframework/spring-beans/3.2.13.RELEASE/spring-beans-3.2.13.RELEASE.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/spring-beans-3.2.13.RELEASE.jar"/>
+    <copy file="D:/maven/repositor/org/springframework/spring-core/3.2.13.RELEASE/spring-core-3.2.13.RELEASE.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/spring-core-3.2.13.RELEASE.jar"/>
+    <copy file="D:/maven/repositor/org/springframework/spring-jdbc/3.2.13.RELEASE/spring-jdbc-3.2.13.RELEASE.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/spring-jdbc-3.2.13.RELEASE.jar"/>
+    <copy file="D:/maven/repositor/org/springframework/spring-tx/3.2.13.RELEASE/spring-tx-3.2.13.RELEASE.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/spring-tx-3.2.13.RELEASE.jar"/>
+    <copy file="D:/maven/repositor/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/mysql-connector-java-5.1.21.jar"/>
+    <copy file="D:/maven/repositor/org/mybatis/mybatis/3.2.2/mybatis-3.2.2.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/mybatis-3.2.2.jar"/>
+    <copy file="D:/maven/repositor/org/mybatis/mybatis-spring/1.2.0/mybatis-spring-1.2.0.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/mybatis-spring-1.2.0.jar"/>
+    <copy file="D:/maven/repositor/log4j/log4j/1.2.12/log4j-1.2.12.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/log4j-1.2.12.jar"/>
+    <copy file="D:/maven/repositor/commons-dbcp/commons-dbcp/1.4/commons-dbcp-1.4.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/commons-dbcp-1.4.jar"/>
+    <copy file="D:/maven/repositor/commons-pool/commons-pool/1.6/commons-pool-1.6.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/commons-pool-1.6.jar"/>
+    <copy file="D:/maven/repositor/org/springframework/spring-web/3.2.13.RELEASE/spring-web-3.2.13.RELEASE.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/spring-web-3.2.13.RELEASE.jar"/>
+    <copy file="D:/maven/repositor/org/springframework/spring-webmvc/3.2.13.RELEASE/spring-webmvc-3.2.13.RELEASE.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/spring-webmvc-3.2.13.RELEASE.jar"/>
+    <copy file="D:/maven/repositor/com/alibaba/fastjson/1.2.13/fastjson-1.2.13.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/fastjson-1.2.13.jar"/>
+    <copy file="D:/maven/repositor/javax/servlet/jstl/1.2/jstl-1.2.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/jstl-1.2.jar"/>
+    <copy file="D:/maven/repositor/org/springframework/spring-test/3.2.13.RELEASE/spring-test-3.2.13.RELEASE.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/spring-test-3.2.13.RELEASE.jar"/>
+    <copy file="D:/maven/repositor/com/github/pagehelper/pagehelper/5.0.0/pagehelper-5.0.0.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/pagehelper-5.0.0.jar"/>
+    <copy file="D:/maven/repositor/com/github/jsqlparser/jsqlparser/0.9.5/jsqlparser-0.9.5.jar" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/lib/jsqlparser-0.9.5.jar"/>
+    <copy todir="${artifact.output.jiuliwangcom:war_exploded}">
+      <fileset dir="${basedir}/src/main/webapp"/>
+    </copy>
+    <mkdir dir="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF"/>
+    <copy file="${basedir}/web/WEB-INF/web.xml" tofile="${artifact.output.jiuliwangcom:war_exploded}/WEB-INF/web.xml"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.jiuliwangcom, artifact.jiuliwangcom:jar, artifact.jiuliwangcom:war_exploded" description="Build all artifacts">
+    <mkdir dir="${artifact.output.jiuliwangcom}"/>
+    <copy todir="${artifact.output.jiuliwangcom}">
+      <fileset dir="${artifact.temp.output.jiuliwangcom}"/>
+    </copy>
+    <mkdir dir="${artifact.output.jiuliwangcom:jar}"/>
+    <copy todir="${artifact.output.jiuliwangcom:jar}">
+      <fileset dir="${artifact.temp.output.jiuliwangcom:jar}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

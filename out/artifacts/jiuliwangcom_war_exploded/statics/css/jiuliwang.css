@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+nav div{
+    display: inline-block;
+    width: 40px;
+    margin: 20px;
+}
+.spanNav{
+    font-size: large;
+    font-family: 宋体;
+    font-color: #666;
+}
+nav {
+    margin: 0 auto;
+    max-width: 1200px;
+    overflow: hidden;
+    position: relative;
+    height: 200px;
+    width: 100%;
+    background-color: #666;
+}
+#box{
+    width: 700px;
+    margin: 0px auto;
+    font-family: 'Microsoft YaHei';
+    font-size: 14px;
+    display: inline-block;
+}
+.inputSearch{
+    width: 260px;
+    height: 26px;
+    border: 1px solid #e2e2e2;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position:5px center;
+    display: inline-block;
+    margin: 20px 0px 20px 200px;
+}
+#search{
+    width: 78px;
+    float: right;
+    height: 30px;
+    background: black;
+    color: white;
+    text-align: center;
+    line-height: 26px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 20px;
+}
+.login{
+    display: inline-block;
+    height: 26px;
+    width: 80px;
+    margin: 20px 20px 20px 200px;
+}
+.login span{
+    font-size: large;
+    font-family: "Microsoft YaHei", tahoma, arial, "Hiragino Sans GB", "\\5b8b体", sans-serif;
+    font-color: #666;
+    font-style: oblique;
+}
+/*注册*/
+.register{
+    display: inline-block;
+    height: 26px;
+    width: 100px;
+    margin: 20px;
+}
+.register span {
+    font-size: large;
+    font-family: "Microsoft YaHei", tahoma, arial, "Hiragino Sans GB", "\\5b8b体", sans-serif;
+    font-color: #666;
+    font-style: oblique;
+}
+.divBody{
+    margin: 0 auto;
+    max-width: 1200px;
+    position: relative;
+    width: 100%;
+    height: 4500px;
+    font-family: Microsoft YaHei;
+    background-color: #27a3ff;
+}
+.divBody div {
+    margin: 0 auto;
+    max-width: 1200px;
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border: rebeccapurple solid 1px;
+
+}
+.divBody div div{
+    margin: 0 auto;
+    position: relative;
+    width: 294px;
+    height: 300px;
+    border: rebeccapurple solid 1px;
+    display: inline-block;
+}
+.divBottom{
+    margin: 0 auto;
+    max-width: 1200px;
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: #666;
+}

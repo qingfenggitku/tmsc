@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.jlw.dao.ShopCartMapper">
+    <resultMap id="shopCartMap" type="cn.jlw.entity.ShopCart">
+        <id column="id" property="id"/>
+        <result property="merchandiseId" column="merchandiseId"></result>
+        <result property="customerId" column="customerId"></result>
+        <result property="createDate" column="createDate"/>
+        <association property="merchandise" javaType="cn.jlw.entity.Merchandise">
+            <id column="id" property="id"></id>
+            <result property="addedTime" column="addedtime"/>
+            <result property="category" column="category"/>
+            <result property="details" column="details"></result>
+            <result property="merchandiseName" column="merchandiseName"/>
+            <result property="price" column="price"/>
+            <result property="number" column="number"/>
+            <result property="salesVolume" column="salesVolume"/>
+            <result property="photo" column="photo"/>
+        </association>
+    </resultMap>
+    <insert id="addShopCar" parameterType="ShopCart">
+        INSERT INTO `shopcart`
+        (`merchandiseId`,customerId,`createDate`)
+        VALUES
+            (#{merchandiseId},#{customerId},#{createDate,jdbcType=TIMESTAMP}
+            );
+    </insert>
+    <select id="queryShopCart" parameterType="Int" resultMap="shopCartMap">
+        SELECT id,merchandiseName,details,price,category,photo,createDate FROM 
+        (SELECT id,merchandiseName,details,price,category,photo from merchandise
+        WHERE id IN (SELECT merchandiseId FROM shopCart WHERE customerId = #{customerId})) shop,
+        (SELECT merchandiseId,createDate FROM shopCart WHERE customerId = #{customerId}) dates 
+        WHERE shop.id = dates.merchandiseId
+    </select>
+</mapper>

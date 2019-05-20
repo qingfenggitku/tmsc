@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jiuliwang">
+    <output-path>$PROJECT_DIR$/../jiuliwangcom/out/artifacts/jiuliwang</output-path>
+    <root id="archive" name="jiuliwang.war">
+      <element id="dir-copy" path="$PROJECT_DIR$/../jiuliwangcom/src/main/webapp" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="class">
+          <element id="module-output" name="jiuliwangcom" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
